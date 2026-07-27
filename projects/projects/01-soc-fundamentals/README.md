@@ -119,7 +119,7 @@ Security Information and Event Management platforms:
 
 The following diagram represents a Security Operations Center architecture, including security data sources, log collection, SIEM platform, SOC analysts and incident response workflow.
 
-![SOC Architecture](images/soc-architecture.drawio (2).png)
+![SOC Architecture](images/soc-architecture.png)
 
 
 ##  Frameworks
