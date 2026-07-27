@@ -93,10 +93,6 @@ resume/
 
 ---
 
-
-
----
-
 # 🎓 Certifications
 
 - Google Cybersecurity Certificate
