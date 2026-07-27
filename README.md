@@ -1,4 +1,4 @@
-# SOC Analyst Portfolio
+ # SOC Analyst Portfolio
 
 ![SOC Analyst](https://img.shields.io/badge/Role-SOC%20Analyst-blue)
 ![Cybersecurity](https://img.shields.io/badge/Domain-Cybersecurity-red)
