@@ -115,7 +115,7 @@ Security Information and Event Management platforms:
 7. Lessons Learned
 
 
-## 🏗️ SOC Architecture
+## SOC Architecture
 
 The following diagram represents a Security Operations Center architecture, including security data sources, log collection, SIEM platform, SOC analysts and incident response workflow.
 
