@@ -147,3 +147,15 @@ This project will be extended with:
 - Real log analysis
 - Threat detection rules
 - Incident investigation reports
+
+
+## Learning Outcomes
+
+After completing this project, I am able to:
+
+- Explain the role of a Security Operations Center (SOC)
+- Describe the responsibilities of SOC L1, L2 and L3 analysts
+- Understand the incident response lifecycle
+- Identify the main technologies used in a SOC
+- Understand the security monitoring workflow
+- Apply cybersecurity frameworks such as MITRE ATT&CK and the NIST Incident Response Lifecycle
