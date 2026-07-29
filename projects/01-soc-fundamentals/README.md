@@ -24,6 +24,12 @@
 - [Author](#author)
 
 
+This project is the first module of my SOC Analyst Portfolio.
+
+It introduces the core concepts of Security Operations Centers (SOC), including analyst roles, monitoring workflows, incident response, and the technologies used to detect and respond to cyber threats.
+
+The knowledge presented here serves as the foundation for the hands-on SOC investigations and SIEM laboratories developed throughout this portfolio.
+
 ##  Project Overview
 
 This project provides an overview of a Security Operations Center (SOC), its architecture, responsibilities, processes and the role of SOC analysts in detecting and responding to cyber threats.
