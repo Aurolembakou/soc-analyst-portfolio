@@ -6,6 +6,24 @@
 ![MITRE](https://img.shields.io/badge/MITRE-ATT%26CK-red)
 ![Documentation](https://img.shields.io/badge/Documentation-Technical-orange)
 
+
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [Project Scope](#project-scope)
+- [Objectives](#objectives)
+- [What is a SOC?](#what-is-a-soc)
+- [SOC Analyst Responsibilities](#soc-analyst-responsibilities)
+- [SOC Technologies](#soc-technologies)
+- [SOC Incident Workflow](#soc-incident-workflow)
+- [SOC Architecture](#soc-architecture)
+- [Frameworks](#frameworks)
+- [Skills Demonstrated](#skills-demonstrated)
+- [Future Improvements](#future-improvements)
+- [Learning Outcomes](#learning-outcomes)
+- [Author](#author)
+
+
 ##  Project Overview
 
 This project provides an overview of a Security Operations Center (SOC), its architecture, responsibilities, processes and the role of SOC analysts in detecting and responding to cyber threats.
@@ -69,33 +87,14 @@ Responsibilities:
 - Threat intelligence
 
 
-##  SOC Technologies
+## SOC Technologies
 
-### SIEM
-
-Security Information and Event Management platforms:
-
-- Microsoft Sentinel
-- Splunk
-- Wazuh
-- ELK Stack
-
-
-### Endpoint Security
-
-- Microsoft Defender
-- CrowdStrike
-- SentinelOne
-- Sysmon
-
-
-### Network Security
-
-- Firewalls
-- IDS/IPS
-- Wireshark
-- Network monitoring tools
-
+| Category | Technologies |
+|----------|--------------|
+| SIEM | Microsoft Sentinel, Splunk, Wazuh, ELK Stack |
+| Endpoint Security | Microsoft Defender, CrowdStrike, SentinelOne, Sysmon |
+| Network Security | Firewalls, IDS/IPS, Wireshark |
+| Frameworks | MITRE ATT&CK, Cyber Kill Chain, NIST Incident Response Lifecycle |
 
 ##  SOC Incident Workflow
 
