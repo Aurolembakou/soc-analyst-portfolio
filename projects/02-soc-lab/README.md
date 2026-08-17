@@ -180,3 +180,54 @@ Planned activities include:
 - Attack simulation
 
 > This repository documents the lab as it is built. Screenshots and configurations are included as evidence of hands-on implementation.
+
+---
+
+## Phase 3 - Windows 11 Deployment and Configuration
+
+The third phase of the SOC lab consisted of deploying and configuring a Windows 11 workstation that will act as an endpoint within the lab environment.
+
+This system will later be used for security monitoring, log generation, threat detection, and incident investigation activities.
+
+### Tasks Completed
+
+- Created the Windows 11 virtual machine
+- Installed and completed the initial Windows 11 configuration
+- Configured a static IPv4 address
+- Configured the default gateway and DNS server
+- Installed VMware Tools
+- Verified the VMware Tools service using PowerShell
+- Prepared the workstation for integration into the SOC lab
+
+### Windows 11 Deployment
+
+![Windows 11](images/windows11-system.png)
+
+The Windows 11 virtual machine was successfully deployed using VMware Workstation Pro.
+
+### Network Configuration
+
+![Windows 11 Network Configuration](images/windows11-network-config.png)
+
+A static IPv4 configuration was assigned to provide consistent communication with the other systems in the SOC lab.
+
+**Network configuration:**
+
+- IPv4: `10.10.1.11`
+- Subnet mask: `255.255.255.0`
+- Default gateway: `10.10.1.1`
+- DNS: `8.8.8.8`
+
+### VMware Tools Verification
+
+![Windows 11 VMware Tools](images/windows11-vmware-tools.png)
+
+VMware Tools was verified using PowerShell:
+
+`Get-Service VMTools`
+
+The `Running` status confirms that the VMware Tools service is operational.
+
+### Phase 3 Status
+
+**Windows 11 Deployment and Initial Configuration: Completed**
