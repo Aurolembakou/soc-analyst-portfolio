@@ -12,13 +12,13 @@ The lab is being built to develop hands-on experience in security monitoring, lo
 |---|---|---|---|---|
 | SIEM1 | Windows Server 2022 Standard | SIEM Server | `10.10.1.22/24` | ✅ Configured |
 | Windows2019 | Windows Server 2019 | Windows Lab Server | `10.10.1.19/24` | ✅ Configured |
+| Windows11 | Windows 11 | Endpoint Workstation | `10.10.1.11/24` | ✅ Configured |
 
 **Virtualization platform:** VMware Workstation Pro 26H1  
 **Default gateway:** `10.10.1.1`  
 **DNS server:** `8.8.8.8`
 
 ---
-
 ## Current Lab Architecture
 
 ```text
@@ -231,3 +231,5 @@ The `Running` status confirms that the VMware Tools service is operational.
 ### Phase 3 Status
 
 **Windows 11 Deployment and Initial Configuration: Completed**
+
+
