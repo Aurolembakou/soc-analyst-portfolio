@@ -1,70 +1,41 @@
-﻿# SOC Home Lab
+﻿## Lab Environment
 
-## Project Overview
+| System | Operating System | Role | IPv4 | Status |
+|---|---|---|---|---|
+| SIEM1 | Windows Server 2022 Standard | SIEM Server | `10.10.1.22/24` | ✅ Configured |
+| Windows2019 | Windows Server 2019 | Windows Lab Server | `10.10.1.19/24` | ✅ Configured |
 
-This project documents the design and implementation of a virtual Security Operations Center (SOC) laboratory.
+**Virtualization platform:** VMware Workstation Pro 26H1  
+**Default gateway:** `10.10.1.1`  
+**DNS server:** `8.8.8.8`
 
-The lab is being built to develop hands-on experience in security monitoring, log collection, threat detection, incident investigation, and SIEM administration.
+## Current Lab Architecture
 
-## Lab Environment
+```text
+                  SOC Home Lab
+                       |
+              VMware Workstation Pro
+                       |
+                10.10.1.0/24
+                 /           \
+                /             \
+        SIEM1                 Windows2019
+  Windows Server 2022      Windows Server 2019
+      10.10.1.22              10.10.1.19
+          |                       |
+     SIEM Platform          Monitored System
+       (planned)              (planned)
 
-| Component | Configuration |
-|---|---|
-| Hypervisor | VMware Workstation Pro 26H1 |
-| SIEM Server | SIEM1 |
-| Operating System | Windows Server 2022 Standard |
-| IPv4 Address | 10.10.1.22/24 |
-| Default Gateway | 10.10.1.1 |
-| DNS Server | 8.8.8.8 |
-| VMware Tools | Installed and Running |
 
----
+**Important :** dans la partie architecture, les trois accents graves autour du diagramme doivent rester présents.
 
-## Phase 1 - SIEM1 Deployment and Configuration
+### 2. Améliorons le bas du README
 
-The first phase of the SOC lab consisted of deploying and preparing the Windows Server that will support the SIEM environment.
+Actuellement, `Current Status` et `Skills Demonstrated` se trouvent avant Phase 2. Ce serait plus logique de les avoir **tout à la fin**, car ils décrivent l'ensemble du projet.
 
-### Tasks Completed
+Dans Notepad, supprime cette ancienne partie située après Phase 1 :
 
-- Deployed the SIEM1 virtual machine
-- Installed Windows Server 2022
-- Configured a static IPv4 address
-- Configured the default gateway and DNS server
-- Installed VMware Tools
-- Verified the VMware Tools service using PowerShell
-- Prepared SIEM1 for the next phases of the SOC environment
-
-### SIEM1 - Windows Server 2022
-
-![SIEM1 Windows Server](images/siem1-windows-server.png)
-
-SIEM1 is deployed as a Windows Server 2022 virtual machine running on VMware Workstation Pro.
-
-### Network Configuration
-
-![SIEM1 Network Configuration](images/siem1-network-config.png)
-
-SIEM1 uses a static IPv4 configuration to provide a consistent network address for communication and future security log collection within the SOC lab.
-
-**Network configuration:**
-
-- IPv4: `10.10.1.22`
-- Subnet mask: `255.255.255.0`
-- Default gateway: `10.10.1.1`
-- DNS: `8.8.8.8`
-
-### VMware Tools Verification
-
-![VMware Tools Verification](images/vmware-tools-verification.png)
-
-VMware Tools was verified from PowerShell using:
-
-`Get-Service VMTools`
-
-The service returned a `Running` status, confirming that VMware Tools is operational.
-
----
-
+```markdown
 ## Current Status
 
 **Phase 1 - SIEM1 Deployment and Initial Configuration: Completed**
@@ -82,55 +53,29 @@ The next phases will expand the lab with additional systems, centralized log col
 
 ---
 
-## Phase 2 - Windows Server 2019 Deployment and Configuration
+## Lab Progress
 
-The second phase of the SOC lab consisted of deploying and configuring an additional Windows Server 2019 virtual machine.
+| Phase | Description | Status |
+|---|---|---|
+| Phase 1 | SIEM1 - Windows Server 2022 deployment | ✅ Completed |
+| Phase 2 | Windows Server 2019 deployment | ✅ Completed |
+| Phase 3 | Next SOC lab component | ⏳ Upcoming |
 
-This system will be used as part of the lab infrastructure for future security monitoring, log collection, and investigation activities.
+## Skills Demonstrated
 
-### Tasks Completed
+- VMware Workstation Pro administration
+- Windows Server 2019 and 2022 deployment
+- Virtual machine configuration
+- Static IPv4 network configuration
+- Windows Server administration
+- VMware Tools installation and verification
+- PowerShell service validation
+- SOC lab infrastructure design
+- Technical documentation with Git and GitHub
 
-- Created the Windows Server 2019 virtual machine
-- Installed Windows Server 2019
-- Renamed the system to `Windows2019`
-- Configured a static IPv4 address
-- Configured the default gateway and DNS server
-- Installed VMware Tools
-- Verified the VMware Tools service using PowerShell
-- Disabled automatic Server Manager launch at logon
-- Installed available Windows updates
-- Prepared the system for integration into the SOC lab
+## Next Steps
 
-### Windows Server 2019 Deployment
+The environment will be expanded progressively as the SOC lab develops. Planned activities include centralized log collection, SIEM integration, security monitoring, detection engineering, and incident investigation.
 
-![Windows Server 2019](images/windows2019-server.png)
+> This repository documents the lab as it is built. Screenshots and configurations are included as evidence of hands-on implementation.
 
-The `Windows2019` virtual machine was successfully deployed using VMware Workstation Pro.
-
-### Network Configuration
-
-![Windows Server 2019 Network Configuration](images/windows2019-network-config.png)
-
-A static IPv4 configuration was assigned to maintain consistent communication with the other systems in the SOC lab.
-
-**Network configuration:**
-
-- Hostname: `Windows2019`
-- IPv4: `10.10.1.19`
-- Subnet mask: `255.255.255.0`
-- Default gateway: `10.10.1.1`
-- DNS: `8.8.8.8`
-
-### VMware Tools Verification
-
-![Windows Server 2019 VMware Tools](images/windows2019-vmware-tools.png)
-
-VMware Tools was verified using PowerShell:
-
-`Get-Service VMTools`
-
-The `Running` status confirms that the VMware Tools service is operational.
-
-### Phase 2 Status
-
-**Windows Server 2019 Deployment and Initial Configuration: Completed**
