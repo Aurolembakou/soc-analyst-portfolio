@@ -1,4 +1,12 @@
-﻿## Lab Environment
+﻿# SOC Home Lab
+
+## Project Overview
+
+This project documents the design and implementation of a virtual Security Operations Center (SOC) laboratory.
+
+The lab is being built to develop hands-on experience in security monitoring, log collection, threat detection, incident investigation, and SIEM administration.
+
+## Lab Environment
 
 | System | Operating System | Role | IPv4 | Status |
 |---|---|---|---|---|
@@ -8,6 +16,8 @@
 **Virtualization platform:** VMware Workstation Pro 26H1  
 **Default gateway:** `10.10.1.1`  
 **DNS server:** `8.8.8.8`
+
+---
 
 ## Current Lab Architecture
 
@@ -25,31 +35,114 @@
           |                       |
      SIEM Platform          Monitored System
        (planned)              (planned)
+```
 
+> The environment is being built progressively. SIEM integration, centralized log collection, detection rules, and attack simulations will be documented in later phases.
 
-**Important :** dans la partie architecture, les trois accents graves autour du diagramme doivent rester présents.
+---
 
-### 2. Améliorons le bas du README
+## Phase 1 - SIEM1 Deployment and Configuration
 
-Actuellement, `Current Status` et `Skills Demonstrated` se trouvent avant Phase 2. Ce serait plus logique de les avoir **tout à la fin**, car ils décrivent l'ensemble du projet.
+The first phase of the SOC lab consisted of deploying and preparing the Windows Server that will support the SIEM environment.
 
-Dans Notepad, supprime cette ancienne partie située après Phase 1 :
+### Tasks Completed
 
-```markdown
-## Current Status
+- Deployed the SIEM1 virtual machine
+- Installed Windows Server 2022
+- Configured a static IPv4 address
+- Configured the default gateway and DNS server
+- Installed VMware Tools
+- Verified the VMware Tools service using PowerShell
+- Prepared SIEM1 for the next phases of the SOC environment
 
-**Phase 1 - SIEM1 Deployment and Initial Configuration: Completed**
+### SIEM1 - Windows Server 2022
 
-The next phases will expand the lab with additional systems, centralized log collection, SIEM configuration, detection engineering, and security investigations.
+![SIEM1 Windows Server](images/siem1-windows-server.png)
 
-## Skills Demonstrated
+SIEM1 is deployed as a Windows Server 2022 virtual machine running on VMware Workstation Pro.
 
-- VMware Workstation administration
-- Windows Server deployment
-- Static IPv4 configuration
-- Virtual machine administration
-- PowerShell service verification
-- SOC lab architecture and documentation
+### Network Configuration
+
+![SIEM1 Network Configuration](images/siem1-network-config.png)
+
+SIEM1 uses a static IPv4 configuration to provide a consistent network address for communication and future security log collection within the SOC lab.
+
+**Network configuration:**
+
+- Hostname: `SIEM1`
+- IPv4: `10.10.1.22`
+- Subnet mask: `255.255.255.0`
+- Default gateway: `10.10.1.1`
+- DNS: `8.8.8.8`
+
+### VMware Tools Verification
+
+![VMware Tools Verification](images/vmware-tools-verification.png)
+
+VMware Tools was verified from PowerShell using:
+
+`Get-Service VMTools`
+
+The service returned a `Running` status, confirming that VMware Tools is operational.
+
+### Phase 1 Status
+
+**SIEM1 Deployment and Initial Configuration: Completed**
+
+---
+
+## Phase 2 - Windows Server 2019 Deployment and Configuration
+
+The second phase of the SOC lab consisted of deploying and configuring an additional Windows Server 2019 virtual machine.
+
+This system will be used as part of the lab infrastructure for future security monitoring, log collection, and investigation activities.
+
+### Tasks Completed
+
+- Created the Windows Server 2019 virtual machine
+- Installed Windows Server 2019
+- Renamed the system to `Windows2019`
+- Configured a static IPv4 address
+- Configured the default gateway and DNS server
+- Installed VMware Tools
+- Verified the VMware Tools service using PowerShell
+- Disabled automatic Server Manager launch at logon
+- Installed available Windows updates
+- Prepared the system for integration into the SOC lab
+
+### Windows Server 2019 Deployment
+
+![Windows Server 2019](images/windows2019-server.png)
+
+The `Windows2019` virtual machine was successfully deployed using VMware Workstation Pro.
+
+### Network Configuration
+
+![Windows Server 2019 Network Configuration](images/windows2019-network-config.png)
+
+A static IPv4 configuration was assigned to maintain consistent communication with the other systems in the SOC lab.
+
+**Network configuration:**
+
+- Hostname: `Windows2019`
+- IPv4: `10.10.1.19`
+- Subnet mask: `255.255.255.0`
+- Default gateway: `10.10.1.1`
+- DNS: `8.8.8.8`
+
+### VMware Tools Verification
+
+![Windows Server 2019 VMware Tools](images/windows2019-vmware-tools.png)
+
+VMware Tools was verified using PowerShell:
+
+`Get-Service VMTools`
+
+The `Running` status confirms that the VMware Tools service is operational.
+
+### Phase 2 Status
+
+**Windows Server 2019 Deployment and Initial Configuration: Completed**
 
 ---
 
@@ -75,7 +168,15 @@ The next phases will expand the lab with additional systems, centralized log col
 
 ## Next Steps
 
-The environment will be expanded progressively as the SOC lab develops. Planned activities include centralized log collection, SIEM integration, security monitoring, detection engineering, and incident investigation.
+The environment will be expanded progressively as the SOC lab develops.
+
+Planned activities include:
+
+- Centralized log collection
+- SIEM integration
+- Security monitoring
+- Detection engineering
+- Incident investigation
+- Attack simulation
 
 > This repository documents the lab as it is built. Screenshots and configurations are included as evidence of hands-on implementation.
-
