@@ -22,19 +22,17 @@ The lab is being built to develop hands-on experience in security monitoring, lo
 ## Current Lab Architecture
 
 ```text
-                  SOC Home Lab
-                       |
-              VMware Workstation Pro
-                       |
-                10.10.1.0/24
-                 /           \
-                /             \
-        SIEM1                 Windows2019
-  Windows Server 2022      Windows Server 2019
-      10.10.1.22              10.10.1.19
-          |                       |
-     SIEM Platform          Monitored System
-       (planned)              (planned)
+                     SOC Home Lab
+                          |
+                 VMware Workstation Pro
+                          |
+                    10.10.1.0/24
+               /          |          \
+              /           |           \
+           SIEM1      Windows2019    Windows11
+     Windows Server   Windows Server   Windows 11
+          2022             2019        Endpoint
+       10.10.1.22       10.10.1.19   10.10.1.11
 ```
 
 > The environment is being built progressively. SIEM integration, centralized log collection, detection rules, and attack simulations will be documented in later phases.
@@ -152,7 +150,8 @@ The `Running` status confirms that the VMware Tools service is operational.
 |---|---|---|
 | Phase 1 | SIEM1 - Windows Server 2022 deployment | ✅ Completed |
 | Phase 2 | Windows Server 2019 deployment | ✅ Completed |
-| Phase 3 | Next SOC lab component | ⏳ Upcoming |
+| Phase 3 | Windows 11 endpoint deployment | ✅ Completed |
+| Phase 4 | Next SOC lab component | ⏳ Upcoming |
 
 ## Skills Demonstrated
 
