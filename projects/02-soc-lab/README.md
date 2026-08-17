@@ -79,3 +79,58 @@ The next phases will expand the lab with additional systems, centralized log col
 - Virtual machine administration
 - PowerShell service verification
 - SOC lab architecture and documentation
+
+---
+
+## Phase 2 - Windows Server 2019 Deployment and Configuration
+
+The second phase of the SOC lab consisted of deploying and configuring an additional Windows Server 2019 virtual machine.
+
+This system will be used as part of the lab infrastructure for future security monitoring, log collection, and investigation activities.
+
+### Tasks Completed
+
+- Created the Windows Server 2019 virtual machine
+- Installed Windows Server 2019
+- Renamed the system to `Windows2019`
+- Configured a static IPv4 address
+- Configured the default gateway and DNS server
+- Installed VMware Tools
+- Verified the VMware Tools service using PowerShell
+- Disabled automatic Server Manager launch at logon
+- Installed available Windows updates
+- Prepared the system for integration into the SOC lab
+
+### Windows Server 2019 Deployment
+
+![Windows Server 2019](images/windows2019-server.png)
+
+The `Windows2019` virtual machine was successfully deployed using VMware Workstation Pro.
+
+### Network Configuration
+
+![Windows Server 2019 Network Configuration](images/windows2019-network-config.png)
+
+A static IPv4 configuration was assigned to maintain consistent communication with the other systems in the SOC lab.
+
+**Network configuration:**
+
+- Hostname: `Windows2019`
+- IPv4: `10.10.1.19`
+- Subnet mask: `255.255.255.0`
+- Default gateway: `10.10.1.1`
+- DNS: `8.8.8.8`
+
+### VMware Tools Verification
+
+![Windows Server 2019 VMware Tools](images/windows2019-vmware-tools.png)
+
+VMware Tools was verified using PowerShell:
+
+`Get-Service VMTools`
+
+The `Running` status confirms that the VMware Tools service is operational.
+
+### Phase 2 Status
+
+**Windows Server 2019 Deployment and Initial Configuration: Completed**
