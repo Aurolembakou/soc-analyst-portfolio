@@ -22,17 +22,23 @@ The lab is being built to develop hands-on experience in security monitoring, lo
 ## Current Lab Architecture
 
 ```text
-                     SOC Home Lab
-                          |
-                 VMware Workstation Pro
-                          |
-                    10.10.1.0/24
-               /          |          \
-              /           |           \
-           SIEM1      Windows2019    Windows11
-     Windows Server   Windows Server   Windows 11
-          2022             2019        Endpoint
-       10.10.1.22       10.10.1.19   10.10.1.11
+                                              SOC Home Lab
+                              |
+                     VMware Workstation Pro
+                              |
+                        10.10.1.0/24
+                /             |             \
+               /              |              \
+            SIEM1        Windows2019       Windows11
+       Windows Server    Windows Server     Windows 11
+            2022              2019           Endpoint
+         10.10.1.22        10.10.1.19      10.10.1.11
+               \
+                \
+                SIEM2
+              Windows 11
+          Secondary SIEM
+             10.10.1.18
 ```
 
 > The environment is being built progressively. SIEM integration, centralized log collection, detection rules, and attack simulations will be documented in later phases.
@@ -151,7 +157,8 @@ The `Running` status confirms that the VMware Tools service is operational.
 | Phase 1 | SIEM1 - Windows Server 2022 deployment | ✅ Completed |
 | Phase 2 | Windows Server 2019 deployment | ✅ Completed |
 | Phase 3 | Windows 11 endpoint deployment | ✅ Completed |
-| Phase 4 | Next SOC lab component | ⏳ Upcoming |
+| Phase 4 | SIEM2 - Windows 11 deployment | ✅ Completed |
+| Phase 5 | Next SOC lab component | ⏳ Upcoming |
 
 ## Skills Demonstrated
 
@@ -230,6 +237,56 @@ The `Running` status confirms that the VMware Tools service is operational.
 ### Phase 3 Status
 
 **Windows 11 Deployment and Initial Configuration: Completed**
+
+---
+
+## Phase 4 - SIEM2 Deployment and Configuration
+
+The fourth phase of the SOC lab consisted of deploying and configuring an additional Windows 11 virtual machine named `SIEM2`.
+
+This system expands the SOC lab infrastructure and will be used in future phases for security monitoring, SIEM-related activities, log collection, threat detection, and incident investigation.
+
+### Tasks Completed
+
+- Created the SIEM2 virtual machine
+- Installed and completed the initial Windows 11 configuration
+- Renamed the system to `SIEM2`
+- Configured the network settings
+- Installed VMware Tools
+- Verified the VMware Tools service using PowerShell
+- Prepared SIEM2 for integration into the SOC lab
+
+### SIEM2 Deployment
+
+![SIEM2 Windows 11](images/siem2-system.png)
+
+The SIEM2 Windows 11 virtual machine was successfully deployed using VMware Workstation Pro.
+
+### Network Configuration
+
+![SIEM2 Network Configuration](images/siem2-network-config.png)
+
+A static IPv4 configuration was assigned to provide consistent communication with the other systems in the SOC lab.
+
+**Network configuration:**
+
+- Hostname: `SIEM2`
+- IPv4: `10.10.1.18`
+- Subnet mask: `255.255.255.0`
+- Default gateway: `10.10.1.1`
+- DNS: `8.8.8.8`### VMware Tools Verification
+
+![SIEM2 VMware Tools](images/siem2-vmware-tools.png)
+
+VMware Tools was verified using PowerShell:
+
+`Get-Service VMTools`
+
+The `Running` status confirms that the VMware Tools service is operational.
+
+### Phase 4 Status
+
+**SIEM2 Deployment and Initial Configuration: Completed**
 
 
 
