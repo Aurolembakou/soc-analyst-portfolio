@@ -146,6 +146,29 @@ VMware Tools was verified using PowerShell:
 `Get-Service VMTools`
 
 The `Running` status confirms that the VMware Tools service is operational.
+### Server Roles and Features Configuration
+
+Windows Server 2019 was configured with additional roles and features to support the SOC lab environment.
+
+The following components were installed and verified:
+
+- Web Server (IIS)
+- BranchCache
+- Client for NFS
+- .NET Framework 3.5
+- WCF HTTP Activation
+- WCF TCP Activation
+- WCF Named Pipe Activation
+- WCF MSMQ Activation
+
+### Roles and Features Verification
+
+![Windows Server 2019 Roles and Features Verification](images/windows2019-roles-features-verification.png)
+
+The installed roles and features were verified using PowerShell.
+
+The IIS World Wide Web Publishing Service (`W3SVC`) returned a `Running` status, confirming that the IIS web service is operational.
+
 
 ### Phase 2 Status
 
