@@ -318,3 +318,52 @@ The `Running` status confirms that the VMware Tools service is operational.
 
 
 
+
+---
+
+## Phase 5 - Parrot Security Deployment and Configuration
+
+The fifth phase of the SOC lab consisted of deploying and configuring a Parrot Security virtual machine that will act as the attacker and security-testing system within the lab environment.
+
+This system will later be used to generate controlled security events, simulate attacks, test detection capabilities, and support incident investigation exercises within the SOC lab.
+
+### Tasks Completed
+
+- Created the Parrot Security virtual machine
+- Installed Parrot Security 7.3 from an ISO image
+- Configured a 60 GB virtual disk
+- Verified successful boot from the installed virtual disk
+- Configured a static IPv4 address
+- Configured the default gateway and DNS server
+- Verified the network configuration on interface `ens33`
+- Prepared the system for future attack simulation and security testing
+
+### Parrot Security Deployment
+
+Parrot Security 7.3 was successfully deployed using VMware Workstation Pro.
+
+The virtual machine was configured with 4 GB of RAM, a 60 GB virtual disk, and a VMware network adapter connected to the SOC lab network.
+
+The system serves as the attacker/security-testing workstation within the lab architecture.
+
+### Network Configuration
+
+![Parrot Security Static IP Verification](images/parrot-static-ip-verification.png)
+
+A static IPv4 configuration was assigned to ensure consistent communication with the other systems in the SOC lab.
+
+**Network configuration:**
+
+- Host: `Parrot Security`
+- Role: `Attacker / Security Testing`
+- Interface: `ens33`
+- IPv4: `10.10.1.13`
+- Subnet mask: `255.255.255.0`
+- Default gateway: `10.10.1.1`
+- DNS: `8.8.8.8`
+
+The network configuration was verified from the Parrot Security terminal after reboot. The `ens33` interface successfully retained the static IPv4 address `10.10.1.13`.
+
+### Phase 5 Status
+
+**Parrot Security Deployment and Initial Configuration: Completed**
