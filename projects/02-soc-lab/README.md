@@ -14,7 +14,8 @@ The lab is being built to develop hands-on experience in security monitoring, lo
 | Windows2019 | Windows Server 2019 | Windows Lab Server | `10.10.1.19/24` | ✅ Configured |
 | Windows11 | Windows 11 | Endpoint Workstation | `10.10.1.11/24` | ✅ Configured |
 | SIEM2 | Windows 11 | Endpoint Workstation | `10.10.1.18/24` | ✅ Configured |
-
+| Parrot Security | Parrot Security 7.3 | Attacker / Security Testing | `10.10.1.13/24` | ✅ Configured |
+| OSSIM Server | AlienVault OSSIM / USM 5.8.11 | SIEM / Security Monitoring | `10.10.1.17/24` | ✅ Configured |
 
 
 **Virtualization platform:** VMware Workstation Pro 26H1  
@@ -25,23 +26,20 @@ The lab is being built to develop hands-on experience in security monitoring, lo
 ## Current Lab Architecture
 
 ```text
-                                              SOC Home Lab
-                              |
-                     VMware Workstation Pro
-                              |
-                        10.10.1.0/24
-                /             |             \
-               /              |              \
-            SIEM1        Windows2019       Windows11
-       Windows Server    Windows Server     Windows 11
-            2022              2019           Endpoint
-         10.10.1.22        10.10.1.19      10.10.1.11
-               \
-                \
-                SIEM2
-              Windows 11
-          Secondary SIEM
-             10.10.1.18
+                                                                                            SOC Home Lab
+                                                   |
+                                         VMware Workstation Pro
+                                                   |
+                                              10.10.1.0/24
+                                                   |
+          +----------------+----------------+-------+-------+----------------+----------------+
+          |                |                |               |                |                |
+        SIEM1         Windows2019       Windows11         SIEM2          Parrot          OSSIM Server
+   Windows Server     Windows Server    Windows 11      Windows 11      Security        AlienVault
+        2022               2019          Endpoint        Endpoint          7.3          OSSIM / USM
+    10.10.1.22         10.10.1.19      10.10.1.11     10.10.1.18      10.10.1.13      10.10.1.17
+                                                                           |                |
+                                                                     Attack Testing    SIEM Monitoring
 ```
 
 > The environment is being built progressively. SIEM integration, centralized log collection, detection rules, and attack simulations will be documented in later phases.
@@ -184,7 +182,9 @@ The IIS World Wide Web Publishing Service (`W3SVC`) returned a `Running` status,
 | Phase 2 | Windows Server 2019 deployment | ✅ Completed |
 | Phase 3 | Windows 11 endpoint deployment | ✅ Completed |
 | Phase 4 | SIEM2 - Windows 11 deployment | ✅ Completed |
-| Phase 5 | Next SOC lab component | ⏳ Upcoming |
+| Phase 5 | Parrot Security deployment and configuration | ✅ Completed |
+| Phase 6 | AlienVault OSSIM Server deployment and configuration | ✅ Completed |
+| Phase 7 | SIEM integration and centralized log collection | ⏳ Upcoming |
 
 ## Skills Demonstrated
 
@@ -367,3 +367,71 @@ The network configuration was verified from the Parrot Security terminal after r
 ### Phase 5 Status
 
 **Parrot Security Deployment and Initial Configuration: Completed**
+
+---
+
+## Phase 6 - AlienVault OSSIM Server Deployment and Configuration
+
+The sixth phase of the SOC lab consisted of deploying and configuring an AlienVault OSSIM server that will serve as the central SIEM platform for the lab environment.
+
+OSSIM will be used to centralize security events, monitor activity across the lab, correlate events, investigate alerts, and support future incident detection and response exercises.
+
+### Tasks Completed
+
+- Created the OSSIM Server virtual machine in VMware Workstation Pro
+- Installed AlienVault OSSIM / USM
+- Verified successful system startup
+- Configured the management network interface `eth0`
+- Configured the OSSIM management IPv4 address
+- Verified access information for the AlienVault web interface
+- Prepared OSSIM for future log collection and security monitoring
+
+### OSSIM Server Deployment
+
+![AlienVault OSSIM Server](images/ossim-server.png)
+
+AlienVault OSSIM was successfully deployed using VMware Workstation Pro.
+
+The installed system reports AlienVault USM 5.8.11 x86_64 and provides the central SIEM functionality for the SOC lab.
+
+### Virtual Machine Configuration
+
+- Hostname: `alienvault`
+- Role: `SIEM / Security Monitoring`
+- Memory: `8 GB`
+- Processors: `8 vCPU`
+- Virtual disk: `60 GB`
+- Management interface: `eth0`
+- Network mode: `NAT`
+
+### Network Configuration
+
+A management IPv4 address was configured to provide consistent communication between OSSIM and the other systems in the SOC lab.
+
+**Network configuration:**
+
+- Hostname: `alienvault`
+- Interface: `eth0`
+- IPv4: `10.10.1.17`
+- Network: `10.10.1.0/24`
+- Default gateway: `10.10.1.1`
+
+The AlienVault web management interface is available internally at:
+
+`https://10.10.1.17`
+
+### Role in the SOC Lab
+
+OSSIM will act as the central SIEM platform and will be used to:
+
+- Collect and centralize security events
+- Monitor Windows and Linux systems
+- Correlate security events
+- Analyze suspicious activity
+- Investigate security alerts
+- Support threat detection and incident response exercises
+- Monitor attack simulations generated from the Parrot Security system
+
+### Phase 6 Status
+
+**AlienVault OSSIM Server Deployment and Initial Configuration: Completed**
