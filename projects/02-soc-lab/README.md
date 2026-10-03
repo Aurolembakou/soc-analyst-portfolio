@@ -77,7 +77,7 @@ SIEM1 uses a static IPv4 configuration to provide a consistent network address f
 - Hostname: `SIEM1`
 - IPv4: `10.10.1.22`
 - Subnet mask: `255.255.255.0`
-- Default gateway: `10.10.1.2`
+- Default gateway: `10.10.1.1`
 - DNS: `8.8.8.8`
 
 ### VMware Tools Verification
@@ -132,7 +132,7 @@ A static IPv4 configuration was assigned to maintain consistent communication wi
 - Hostname: `Windows2019`
 - IPv4: `10.10.1.29`
 - Subnet mask: `255.255.255.0`
-- Default gateway: `10.10.1.2`
+- Default gateway: `10.10.1.1`
 - DNS: `8.8.8.8`
 
 ### VMware Tools Verification
@@ -248,7 +248,7 @@ A static IPv4 configuration was assigned to provide consistent communication wit
 
 - IPv4: `10.10.1.21`
 - Subnet mask: `255.255.255.0`
-- Default gateway: `10.10.1.2`
+- Default gateway: `10.10.1.1`
 - DNS: `8.8.8.8`
 
 ### VMware Tools Verification
@@ -300,7 +300,7 @@ A static IPv4 configuration was assigned to provide consistent communication wit
 - Hostname: `SIEM2`
 - IPv4: `10.10.1.28`
 - Subnet mask: `255.255.255.0`
-- Default gateway: `10.10.1.2`
+- Default gateway: `10.10.1.1`
 - DNS: `8.8.8.8`
 
 ### VMware Tools Verification
@@ -360,7 +360,7 @@ A static IPv4 configuration was assigned to ensure consistent communication with
 - Interface: `ens33`
 - IPv4: `10.10.1.23`
 - Subnet mask: `255.255.255.0`
-- Default gateway: `10.10.1.2`
+- Default gateway: `10.10.1.1`
 - DNS: `8.8.8.8`
 
 The network configuration was verified from the Parrot Security terminal after reboot. The `ens33` interface successfully retained the static IPv4 address `10.10.1.23`.
@@ -415,7 +415,7 @@ A management IPv4 address was configured to provide consistent communication bet
 - Interface: `eth0`
 - IPv4: `10.10.1.27`
 - Network: `10.10.1.0/24`
-- Default gateway: `10.10.1.2`
+- Default gateway: `10.10.1.1`
 
 The AlienVault web management interface is available internally at:
 
