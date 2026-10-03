@@ -11,15 +11,15 @@ The lab is being built to develop hands-on experience in security monitoring, lo
 | System | Operating System | Role | IPv4 | Status |
 |---|---|---|---|---|
 | SIEM1 | Windows Server 2022 Standard | SIEM Server | `10.10.1.22/24` | ✅ Configured |
-| Windows2019 | Windows Server 2019 | Windows Lab Server | `10.10.1.19/24` | ✅ Configured |
-| Windows11 | Windows 11 | Endpoint Workstation | `10.10.1.11/24` | ✅ Configured |
-| SIEM2 | Windows 11 | Endpoint Workstation | `10.10.1.18/24` | ✅ Configured |
-| Parrot Security | Parrot Security 7.3 | Attacker / Security Testing | `10.10.1.13/24` | ✅ Configured |
-| OSSIM Server | AlienVault OSSIM / USM 5.8.11 | SIEM / Security Monitoring | `10.10.1.17/24` | ✅ Configured |
+| Windows2019 | Windows Server 2019 | Windows Lab Server | `10.10.1.29/24` | ✅ Configured |
+| Windows11 | Windows 11 | Endpoint Workstation | `10.10.1.21/24` | ✅ Configured |
+| SIEM2 | Windows 11 | Endpoint Workstation | `10.10.1.28/24` | ✅ Configured |
+| Parrot Security | Parrot Security 7.3 | Attacker / Security Testing | `10.10.1.23/24` | ✅ Configured |
+| OSSIM Server | AlienVault OSSIM / USM 5.8.11 | SIEM / Security Monitoring | `10.10.1.27/24` | ✅ Configured |
 
 
 **Virtualization platform:** VMware Workstation Pro 26H1  
-**Default gateway:** `10.10.1.1`  
+**Default gateway:** `10.10.1.2`  
 **DNS server:** `8.8.8.8`
 
 ---
@@ -37,7 +37,7 @@ The lab is being built to develop hands-on experience in security monitoring, lo
         SIEM1         Windows2019       Windows11         SIEM2          Parrot          OSSIM Server
    Windows Server     Windows Server    Windows 11      Windows 11      Security        AlienVault
         2022               2019          Endpoint        Endpoint          7.3          OSSIM / USM
-    10.10.1.22         10.10.1.19      10.10.1.11     10.10.1.18      10.10.1.13      10.10.1.17
+    10.10.1.22         10.10.1.29      10.10.1.21     10.10.1.28      10.10.1.23      10.10.1.27
                                                                            |                |
                                                                      Attack Testing    SIEM Monitoring
 ```
@@ -77,7 +77,7 @@ SIEM1 uses a static IPv4 configuration to provide a consistent network address f
 - Hostname: `SIEM1`
 - IPv4: `10.10.1.22`
 - Subnet mask: `255.255.255.0`
-- Default gateway: `10.10.1.1`
+- Default gateway: `10.10.1.2`
 - DNS: `8.8.8.8`
 
 ### VMware Tools Verification
@@ -130,9 +130,9 @@ A static IPv4 configuration was assigned to maintain consistent communication wi
 **Network configuration:**
 
 - Hostname: `Windows2019`
-- IPv4: `10.10.1.19`
+- IPv4: `10.10.1.29`
 - Subnet mask: `255.255.255.0`
-- Default gateway: `10.10.1.1`
+- Default gateway: `10.10.1.2`
 - DNS: `8.8.8.8`
 
 ### VMware Tools Verification
@@ -184,7 +184,8 @@ The IIS World Wide Web Publishing Service (`W3SVC`) returned a `Running` status,
 | Phase 4 | SIEM2 - Windows 11 deployment | ✅ Completed |
 | Phase 5 | Parrot Security deployment and configuration | ✅ Completed |
 | Phase 6 | AlienVault OSSIM Server deployment and configuration | ✅ Completed |
-| Phase 7 | SIEM integration and centralized log collection | ⏳ Upcoming |
+| Phase 7 | Network connectivity and centralized SOC tools repository | ✅ Completed |
+| Phase 8 | SIEM integration and centralized log collection | ⏳ Upcoming |
 
 ## Skills Demonstrated
 
@@ -245,9 +246,9 @@ A static IPv4 configuration was assigned to provide consistent communication wit
 
 **Network configuration:**
 
-- IPv4: `10.10.1.11`
+- IPv4: `10.10.1.21`
 - Subnet mask: `255.255.255.0`
-- Default gateway: `10.10.1.1`
+- Default gateway: `10.10.1.2`
 - DNS: `8.8.8.8`
 
 ### VMware Tools Verification
@@ -297,9 +298,9 @@ A static IPv4 configuration was assigned to provide consistent communication wit
 **Network configuration:**
 
 - Hostname: `SIEM2`
-- IPv4: `10.10.1.18`
+- IPv4: `10.10.1.28`
 - Subnet mask: `255.255.255.0`
-- Default gateway: `10.10.1.1`
+- Default gateway: `10.10.1.2`
 - DNS: `8.8.8.8`
 
 ### VMware Tools Verification
@@ -357,12 +358,12 @@ A static IPv4 configuration was assigned to ensure consistent communication with
 - Host: `Parrot Security`
 - Role: `Attacker / Security Testing`
 - Interface: `ens33`
-- IPv4: `10.10.1.13`
+- IPv4: `10.10.1.23`
 - Subnet mask: `255.255.255.0`
-- Default gateway: `10.10.1.1`
+- Default gateway: `10.10.1.2`
 - DNS: `8.8.8.8`
 
-The network configuration was verified from the Parrot Security terminal after reboot. The `ens33` interface successfully retained the static IPv4 address `10.10.1.13`.
+The network configuration was verified from the Parrot Security terminal after reboot. The `ens33` interface successfully retained the static IPv4 address `10.10.1.23`.
 
 ### Phase 5 Status
 
@@ -412,13 +413,13 @@ A management IPv4 address was configured to provide consistent communication bet
 
 - Hostname: `alienvault`
 - Interface: `eth0`
-- IPv4: `10.10.1.17`
+- IPv4: `10.10.1.27`
 - Network: `10.10.1.0/24`
-- Default gateway: `10.10.1.1`
+- Default gateway: `10.10.1.2`
 
 The AlienVault web management interface is available internally at:
 
-`https://10.10.1.17`
+`https://10.10.1.27`
 
 ### Role in the SOC Lab
 
@@ -435,3 +436,90 @@ OSSIM will act as the central SIEM platform and will be used to:
 ### Phase 6 Status
 
 **AlienVault OSSIM Server Deployment and Initial Configuration: Completed**
+
+---
+
+## Phase 7 - Network Connectivity and Centralized SOC Tools Repository
+
+The seventh phase of the SOC lab focused on correcting network connectivity across the virtual environment and creating a centralized repository for SOC software and installation packages.
+
+This configuration provides consistent Internet access through the VMware NAT network and allows Windows systems in the lab to access required security tools from a central location.
+
+### VMware NAT Network Configuration
+
+The SOC lab operates on the `10.10.1.0/24` VMware NAT network.
+
+During connectivity testing, the VMware host adapter and NAT gateway were found to be using the same IPv4 address. The network configuration was corrected by assigning separate addresses to the host adapter and NAT gateway.
+
+**Network configuration:**
+
+- Network: `10.10.1.0/24`
+- VMware VMnet8 host adapter: `10.10.1.1`
+- VMware NAT gateway: `10.10.1.2`
+- DNS server: `8.8.8.8`
+
+The default gateway on the Windows lab systems was updated to `10.10.1.2`.
+
+Connectivity was validated by testing access to the NAT gateway, external IP connectivity, and DNS name resolution.
+
+### Centralized SOC Tools Repository
+
+A dedicated software repository was created on SIEM1 to centralize installation packages required throughout the SOC lab.
+
+**Repository location on SIEM1:**
+
+`E:\SOC-Tools`
+
+The repository contains installation packages for:
+
+- Splunk Enterprise
+- SQL Server Express
+- SQL Server Management Studio (SSMS)
+- Java Development Kit (JDK)
+- Npcap
+- Notepad++
+- Mozilla Firefox
+
+### SOC Tools Repository
+
+![Centralized SOC Tools Repository](images/soc-tools-repository.png)
+
+Centralizing the installation packages reduces duplicate downloads and provides a consistent software source for the Windows systems in the lab.
+
+### Network Share Configuration
+
+The `SOC-Tools` repository was shared from SIEM1 over the internal SOC lab network.
+
+**Network share:**
+
+`\\SIEM1\SOC-Tools`
+
+![SOC Tools Network Share](images/soc-tools-network-share.png)
+
+The shared repository is accessible from the Windows systems participating in the SOC lab:
+
+- SIEM1
+- SIEM2
+- Windows11
+- Windows2019
+
+This configuration provides centralized access to the installation packages and simplifies software deployment throughout the lab.
+
+### Tasks Completed
+
+- Corrected the VMware NAT gateway configuration
+- Separated the VMnet8 host adapter and NAT gateway IPv4 addresses
+- Configured `10.10.1.2` as the VMware NAT gateway
+- Updated the Windows lab systems to use the new default gateway
+- Verified communication with the VMware NAT gateway
+- Verified Internet connectivity
+- Verified DNS resolution using `8.8.8.8`
+- Created the `E:\SOC-Tools` centralized repository on SIEM1
+- Centralized the required SOC software installation packages
+- Configured the `SOC-Tools` network share
+- Verified access to the shared repository from the Windows lab systems
+
+### Phase 7 Status
+
+**Network Connectivity and Centralized SOC Tools Repository: Completed**
+
