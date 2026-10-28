@@ -202,7 +202,8 @@ The IIS World Wide Web Publishing Service (`W3SVC`) returned a `Running` status,
 | Phase 5 | Parrot Security deployment and configuration | ✅ Completed |
 | Phase 6 | AlienVault OSSIM Server deployment and configuration | ✅ Completed |
 | Phase 7 | Network connectivity and centralized SOC tools repository | ✅ Completed |
-| Phase 8 | SIEM integration and centralized log collection | ⏳ Upcoming |
+| Phase 8 | IIS Web Application Deployment and SQL Server Integration | ✅ Completed |
+| Phase 9 | SIEM integration and centralized log collection | ⏳ Upcoming |
 
 ## Skills Demonstrated
 
@@ -539,4 +540,146 @@ This configuration provides centralized access to the installation packages and 
 ### Phase 7 Status
 
 **Network Connectivity and Centralized SOC Tools Repository: Completed**
+
+
+
+---
+
+## Phase 8 - IIS Web Application Deployment and SQL Server Integration
+
+### Overview
+
+This phase focuses on deploying and testing a hotel reservation web application named **LuxuryTreats** within the SOC home lab.
+
+The application is hosted on Windows Server 2019 using Microsoft IIS and ASP.NET, with SQL Server Express providing database storage and application activity logging.
+
+The objective is to create realistic application events that can support future SOC monitoring, threat detection, and incident investigation exercises.
+
+### Technologies Used
+
+- Windows Server 2019
+- Microsoft Internet Information Services (IIS)
+- ASP.NET (.NET Framework)
+- Microsoft SQL Server Express
+- SQL Server Management Studio (SSMS)
+- VMware Workstation Pro
+
+### IIS Web Server Configuration
+
+The LuxuryTreats website was configured in IIS on the Windows Server 2019 virtual machine.
+
+**Web application configuration:**
+
+- Website: `LuxuryTreats`
+- Hostname: `luxurytreats.local`
+- Server IP: `10.10.1.19`
+- Protocol: HTTP
+- Port: `80`
+- Physical directory: `C:\inetpub\wwwroot\LuxuryTreats`
+
+![IIS Configuration](images/luxurytreats/iis-configuration.png)
+
+*Figure 1: LuxuryTreats website configuration in IIS.*
+
+### Web Application Deployment
+
+The LuxuryTreats application provides a hotel reservation interface with room listings and a reservation form.
+
+![LuxuryTreats Homepage](images/luxurytreats/luxurytreats-homepage.png)
+
+*Figure 2: LuxuryTreats web application homepage.*
+
+### Hotel Room Listings
+
+The application retrieves room information from the SQL Server database.
+
+Five hotel rooms were configured for testing.
+
+![Hotel Room Listings](images/luxurytreats/hotel-rooms.png)
+
+*Figure 3: Hotel rooms displayed by the application.*
+
+### Reservation Form
+
+The reservation interface allows users to enter booking information, including customer details, room selection, and arrival and departure dates.
+
+![Reservation Form](images/luxurytreats/reservation-form.png)
+
+*Figure 4: LuxuryTreats reservation form.*
+
+### SQL Server Database Integration
+
+The application uses the `Hotels` database hosted on SQL Server Express.
+
+The database contains the following tables:
+
+- `Clients`
+- `Chambres`
+- `Reservations`
+- `JournalActivites`
+
+Application database operations support room retrieval, reservation creation, and activity logging.
+
+### Application Activity Logging
+
+The `JournalActivites` table records application events that can be reviewed during security investigations.
+
+A reservation test generated the following event:
+
+- Event ID: `1`
+- Event type: `RESERVATION_CREEE`
+- Description: `Nouvelle réservation enregistrée`
+- Source IP: `10.10.1.19`
+
+The following SQL query was used to review application activity:
+
+```sql
+USE Hotels;
+
+SELECT
+    JournalID,
+    DateEvenement,
+    TypeEvenement,
+    Description,
+    AdresseIP
+FROM dbo.JournalActivites
+ORDER BY DateEvenement DESC;
+```
+
+![SQL Reservation Logs](images/luxurytreats/sql-reservation-logs.png)
+
+*Figure 5: Reservation activity recorded in SQL Server.*
+
+### Security Monitoring Relevance
+
+The LuxuryTreats application provides a controlled environment for generating and analyzing web application activity.
+
+Future monitoring exercises will focus on:
+
+- IIS access logs
+- Windows security events
+- Application activity logs
+- Suspicious web requests
+- Failed authentication attempts, where supported
+- SIEM correlation and alert investigation
+
+Centralized collection of these events in Splunk or AlienVault OSSIM remains a future integration task.
+
+### Skills Demonstrated
+
+- IIS website configuration
+- ASP.NET application deployment
+- SQL Server database integration
+- Web application testing
+- Application event logging
+- SQL queries for event investigation
+- Technical documentation
+- Preparation for SIEM log collection
+
+### Phase 8 Status
+
+**IIS Web Application Deployment and SQL Server Integration: Completed**
+
+**Centralized SIEM Log Collection: Planned**
+
 
