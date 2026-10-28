@@ -25,6 +25,21 @@ The lab is being built to develop hands-on experience in security monitoring, lo
 ---
 ## Current Lab Architecture
 
+### VMware Virtual Infrastructure
+
+The SOC home lab consists of six virtual machines deployed using VMware Workstation Pro.
+
+The virtual environment includes Windows Server systems, Windows 11 endpoints, Parrot Security Linux, and AlienVault OSSIM.
+
+These systems provide the foundation for security monitoring, log collection, incident investigation, and controlled security testing.
+
+![VMware SOC Lab](images/vmware-lab.png)
+
+*Figure 1: VMware Workstation showing the six virtual machines deployed in the SOC laboratory.*
+
+### Network Architecture
+
+
 ```text
                                                                                             SOC Home Lab
                                                    |
@@ -45,6 +60,8 @@ The lab is being built to develop hands-on experience in security monitoring, lo
 > The environment is being built progressively. SIEM integration, centralized log collection, detection rules, and attack simulations will be documented in later phases.
 
 ---
+
+
 
 ## Phase 1 - SIEM1 Deployment and Configuration
 
