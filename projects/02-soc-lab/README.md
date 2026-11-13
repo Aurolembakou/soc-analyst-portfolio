@@ -203,9 +203,9 @@ The IIS World Wide Web Publishing Service (`W3SVC`) returned a `Running` status,
 | Phase 6 | AlienVault OSSIM Server deployment and configuration | ✅ Completed |
 | Phase 7 | Network connectivity and centralized SOC tools repository | ✅ Completed |
 | Phase 8 | IIS Web Application Deployment and SQL Server Integration | ✅ Completed |
-| Phase 9 | SIEM integration and centralized log collection | ⏳ Upcoming |
-
-## Skills Demonstrated
+| Phase 9 | Local Hostname Resolution, Network Validation and VMware Snapshots | ✅ Completed |
+| Phase 10 | Threat Analysis, Indicators of Compromise (IOCs), and Attack Methodologies | ⏳ Upcoming |
+| Phase 11 | SIEM Integration and Centralized Log Collection | ⏳ Upcoming |## Skills Demonstrated
 
 - VMware Workstation Pro administration
 - Windows Server 2019 and 2022 deployment
@@ -681,5 +681,93 @@ Centralized collection of these events in Splunk or AlienVault OSSIM remains a f
 **IIS Web Application Deployment and SQL Server Integration: Completed**
 
 **Centralized SIEM Log Collection: Planned**
+
+## Phase 9 - Local Hostname Resolution, Network Validation and VMware Snapshots
+
+### Overview
+
+This phase focuses on configuring local hostname resolution across the SOC Home Lab, validating communication between virtual machines, and creating VMware snapshots before starting security testing activities.
+
+The objective is to establish a stable and recoverable environment for future threat analysis, attack simulation, security monitoring, and incident investigation exercises.
+
+### Local Hosts File Configuration
+
+The Windows and Parrot Security virtual machines were configured to resolve the LuxuryTreats web application's hostname locally.
+
+**Hostname mapping:**
+
+`10.10.1.19    luxurytreats.local`
+
+On Windows systems, the configuration was added to:
+
+`C:\Windows\System32\drivers\etc\hosts`
+
+On Parrot Security, the configuration was added to:
+
+`/etc/hosts`
+
+This mapping allows the configured systems to access the IIS web server using `http://luxurytreats.local` without relying on an external DNS record.
+
+### Network Connectivity Validation
+
+Network connectivity was tested using ICMP and TCP/HTTP connectivity checks.
+
+**Windows Server 2022 - SIEM1:**
+- Successfully resolved `luxurytreats.local` to `10.10.1.19`.
+- ICMP test completed with 0% packet loss.
+- TCP connectivity to port 80 was successful using `Test-NetConnection`.
+
+**Windows 11 - SIEM2:**
+- Successfully resolved `luxurytreats.local` to `10.10.1.19`.
+- ICMP test completed with 0% packet loss.
+
+**Parrot Security:**
+- Verified hostname resolution using `getent hosts`.
+- Successfully tested ICMP connectivity with 0% packet loss.
+- Confirmed an HTTP `200 OK` response using `curl`.
+- Successfully accessed the LuxuryTreats web server through Firefox.
+
+These tests validated hostname resolution and connectivity to the IIS web service.
+
+### VMware Snapshot Creation
+
+A baseline snapshot was created for each of the six virtual machines:
+
+- Windows Server 2019
+- Windows Server 2022 (SIEM1)
+- Windows 11
+- Windows 11 (SIEM2)
+- Parrot Security
+- AlienVault OSSIM Server
+
+These snapshots provide recovery points before conducting controlled security testing and system configuration changes.
+
+Snapshots are not substitutes for independent virtual machine or database backups.
+
+### Security Monitoring Relevance
+
+This phase prepares the SOC Home Lab for future security exercises involving:
+
+- Threat intelligence and IOC analysis
+- MITRE ATT&CK techniques
+- Controlled attack simulations
+- Windows and IIS log analysis
+- Network activity investigation
+- SIEM detection and alert correlation
+
+### Skills Demonstrated
+
+- Windows and Linux hosts file administration
+- Local hostname resolution
+- ICMP and HTTP connectivity testing
+- PowerShell and Linux command-line troubleshooting
+- VMware snapshot management
+- SOC lab baseline preparation
+
+### Phase 9 Status
+
+**Local Hostname Resolution, Network Validation and VMware Snapshots: Completed**
+
+**Next Focus: Threat Analysis, Indicators of Compromise (IOCs), and Attack Methodologies.**
 
 
